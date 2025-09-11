@@ -1,10 +1,17 @@
 function init() {
 let mouseX = 0;
 let mouseY = 0;
+let radiusCounter=10;
 
 let flashlight = document.getElementById("flashlight");
 
 
+for (let i = 0; i < 50; i++) {
+  setTimeout(() => {
+    radiusCounter += 1;
+    flashlight.style.setProperty("--radius", radiusCounter + "em");
+  }, i * 10); 
+}
 
 console.log(flashlight)
 

@@ -169,33 +169,7 @@ h1 {
     --Xpos: 50vw;
     --Ypos: 40vh;
     --radius: 10em;
-    animation-name: dimming;
-    animation-fill-mode: both;
-  animation-duration: 1s;
-  animation-timing-function:ease
-  
 }
-
-
-@keyframes dimming {
-   0%   {--radius: 10em;}
-  10%  {--radius: 12em;}
-  11%  {--radius: 14em;}
-  12% {--radius: 16em;}
-   13% {--radius: 18em;}
-  14% {--radius: 20em;}
-15% {--radius: 22em;}
-16% {--radius:24em;}
-17% {--radius:26em;}
-18% {--radius:28em;}
-19% {--radius:30em;}
-20% {--radius:32em;}
-21% {--radius:34em;}
-22% {--radius:36em;}
-100% {--radius:36em;}
-}
-
-
 
 
 
@@ -212,10 +186,6 @@ h1 {
             rgba(0, 0, 0, 1));
     
 }
-
-
-
-
 
 
 h2 {
