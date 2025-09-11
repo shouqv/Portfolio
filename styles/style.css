@@ -306,14 +306,14 @@ span img {
   100% {gap:0px;}
 }
 
-.movingText{
+.centeringDiv{
     display: flex;
     justify-content: center;
     
 
 }
 
-.movingText ul {
+.centeringDiv ul {
    
     width: 50vw;
     height: 40vh;
@@ -331,7 +331,29 @@ span img {
 
 .movingDiv {
     position: relative;
-    /* left:-100%; */
+    opacity:0;
+}
+
+@keyframes riseFade {
+  0% {
+    bottom: -60px;
+    opacity: 0;
+    transform: translateX(0) scale(0.8);
+  }
+  50% {
+    bottom: 60px;
+    opacity: 1;
+    transform: translateX(0) scale(1.05);
+  }
+  100% {
+    bottom: 0px;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+#skillList {
+    padding:0px 15px;
 }
 
 
