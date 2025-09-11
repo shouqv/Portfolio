@@ -8,7 +8,8 @@ function init() {
 
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
-  // let navBar = document.querySelector("nav")
+  // let movingText = document.querySelector(".movingText")
+  // console.log(movingText)
 
 
 
@@ -39,6 +40,7 @@ function init() {
   // end of flashlight effect
   }
 
+
       let observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting && !intersectedFlags.find((element) => element === entry.target)) {
@@ -60,8 +62,40 @@ function init() {
     });
 
     mainText.forEach(element =>
-      observer.observe(element))
+    observer.observe(element))
 
+
+
+
+      
+
+
+
+
+    // let observer2 = new IntersectionObserver(function (entries) {
+    //   entries.forEach(function (entry) {
+    //     let leftPosition = -100
+    //     let sec =1;
+    //     while (entry.isIntersecting ) {
+    
+          
+          
+    //         setTimeout(() => {
+    //           leftPosition += 1;
+    //           entry.target.style.left=`${leftPosition}px`;
+              
+    //         }, 1000);
+   
+    //       // console.log(entry.target)
+    //       intersectedFlags.push(entry.target)
+    //     }
+    //   });
+    // });
+
+
+    
+      // observer2.observe(movingText)
+    
 
   
 

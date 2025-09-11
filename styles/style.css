@@ -306,3 +306,33 @@ span img {
   100% {gap:0px;}
 }
 
+.movingText{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+.movingText ul {
+   
+    width: 50vw;
+    height: 40vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 0px 10px 10px rgba(34, 0, 95,0.5);
+    flex-wrap: wrap;
+   column-gap: 2vw;
+   row-gap: 2vw;
+   align-content:center;
+}
+
+.movingDiv {
+    position: relative;
+    /* left:-100%; */
+}
+
+
+
