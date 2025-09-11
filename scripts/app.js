@@ -2,14 +2,14 @@ function init() {
   let mouseX = 0;
   let mouseY = 0;
   let radiusCounter = 10;
-  let navPosition= -10;
+  let navPosition = -10;
 
   let intersectedFlags = [];
 
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
-  let navBar = document.querySelector("nav")
-  
+  // let navBar = document.querySelector("nav")
+
 
 
   for (let i = 0; i < 50; i++) {
@@ -19,14 +19,8 @@ function init() {
     }, i * 10);
   }
 
-// for (let i = 0; i < 40; i++) {
-//     setTimeout(() => {
-//       navPosition += 1;
-//       navBar.style.top= navPosition;
-//     }, i * 100);
-//   }
-  
 
+  // crediting https://codingartistweb.com/2025/07/flashlight-effect-with-html-css-and-javascript/
   const isTouchDevice = () => {
     try {
       document.createEvent("TouchEvent");
@@ -42,9 +36,10 @@ function init() {
 
     flashlight.style.setProperty("--Xpos", mouseX + "px");
     flashlight.style.setProperty("--Ypos", mouseY + "px");
+  // end of flashlight effect
+  }
 
-
-    let observer = new IntersectionObserver(function (entries) {
+      let observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting && !intersectedFlags.find((element) => element === entry.target)) {
           
@@ -53,7 +48,7 @@ function init() {
             setTimeout(() => {
               opacity += 0.01;
               entry.target.style.color = `rgba(224, 224, 224, ${opacity}`;
-              console.log(opacity)
+              
             }, i * 10);
           }
 
@@ -68,7 +63,7 @@ function init() {
       observer.observe(element))
 
 
-  }
+  
 
   flashlight.addEventListener("mousemove", getMousePosition);
   flashlight.addEventListener("touchmove", getMousePosition);

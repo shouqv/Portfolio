@@ -134,15 +134,11 @@ table {
 }
 
 
-
-
-
-
-
 body {
     color: #E0E0E0;
-    background-color: #000000;
+    /* background-color: #000000; */
     font-family: "Playfair Display";
+    background-image:  linear-gradient( rgb(0, 0, 0), rgb(0, 0, 0), rgba(26, 0, 73, 1) ) ;;
 }
 
 
@@ -207,14 +203,16 @@ main {
 }
 
 section {
-    padding: 10vh 0;
+    padding: 5vh 0 20vh 0;
     font-size: 5vw;
-    border-top: solid 1px;
-     border-top-color: rgba(220,220,220,0.5); 
-     /* border-image: linear-gradient(to right, rgba(255, 127, 127, 0), rgba(255,0,0,1)); */
-       border-image: linear-gradient( to right, rgb(0, 0, 0), rgb(225, 225, 225, 0.7) , rgb(0, 0, 0)) 1;
-    
+   
+}
 
+hr {
+    padding: 0 0 5vh 0;
+    border:0;
+    border-top: solid 1px;
+    border-image: linear-gradient( to right, rgb(0, 0, 0), rgb(225, 225, 225, 0.7) , rgb(0, 0, 0)) 1;
 }
 
 .content {
@@ -284,5 +282,27 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #111111;
   border-radius: 10px;
+}
+
+span { 
+    display: flex;
+    justify-content: center;
+    gap:0px;
+    animation: moving 2s infinite ;
+    animation-fill-mode:both;
+    
+}
+span img {
+    animation: rotating 2s infinite;
+}
+
+@keyframes rotating {
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes moving {
+  0% {gap:0px;}
+  50% {gap:90px;}
+  100% {gap:0px;}
 }
 
