@@ -1,0 +1,245 @@
+/* resetiing css. source:https://meyerweb.com/eric/tools/css/reset/ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+
+
+
+
+body {
+    color: #E0E0E0;
+    background-color: #000000;
+}
+
+
+header {
+    height: 100vh;
+    /* full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    cursor: none;
+
+}
+
+h1 {
+    font-size: 10vw;
+    line-height: 1.1;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* creaditing https://codingartistweb.com/2025/07/flashlight-effect-with-html-css-and-javascript/ 
+ for the flash effect */
+
+#flashlight {
+    --Xpos: 50vw;
+    --Ypos: 40vh;
+    --radius: 10em;
+    animation-name: dimming;
+    animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-timing-function:ease
+  
+}
+
+
+@keyframes dimming {
+   0%   {--radius: 10em;}
+  10%  {--radius: 12em;}
+  11%  {--radius: 14em;}
+  12% {--radius: 16em;}
+   13% {--radius: 18em;}
+  14% {--radius: 20em;}
+15% {--radius: 22em;}
+16% {--radius:24em;}
+17% {--radius:26em;}
+18% {--radius:28em;}
+19% {--radius:30em;}
+20% {--radius:32em;}
+21% {--radius:34em;}
+22% {--radius:36em;}
+100% {--radius:36em;}
+}
+
+
+
+
+
+#flashlight:after {
+    
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    pointer-events: none;
+    background: radial-gradient(circle var(--radius) at var(--Xpos) var(--Ypos),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 1));
+    
+}
+
+
+
+
+
+
+h2 {
+    font-size: 5vw;
+    padding: 4px 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4vw 15vw;
+}
+
+section {
+    padding: 15vh 0
+}
+
+.content {
+    font-size: 2em;
+}
+
+img {
+    width: 100px;
+
+
+}
