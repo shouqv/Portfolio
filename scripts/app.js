@@ -2,11 +2,14 @@ function init() {
   let mouseX = 0;
   let mouseY = 0;
   let radiusCounter = 10;
+  let navPosition= -10;
 
   let intersectedFlags = [];
 
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
+  let navBar = document.querySelector("nav")
+  
 
 
   for (let i = 0; i < 50; i++) {
@@ -16,7 +19,13 @@ function init() {
     }, i * 10);
   }
 
-  console.log(flashlight)
+// for (let i = 0; i < 40; i++) {
+//     setTimeout(() => {
+//       navPosition += 1;
+//       navBar.style.top= navPosition;
+//     }, i * 100);
+//   }
+  
 
   const isTouchDevice = () => {
     try {
@@ -40,12 +49,12 @@ function init() {
         if (entry.isIntersecting && !intersectedFlags.find((element) => element === entry.target)) {
           
           let opacity = 0
-          for (let i = 0; i <=10; i++) {
+          for (let i = 0; i <=100; i++) {
             setTimeout(() => {
-              opacity += 0.1;
+              opacity += 0.01;
               entry.target.style.color = `rgba(224, 224, 224, ${opacity}`;
               console.log(opacity)
-            }, i * 50);
+            }, i * 10);
           }
 
 
