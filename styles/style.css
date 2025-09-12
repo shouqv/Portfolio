@@ -197,7 +197,7 @@ h1 {
 
 
 h2 {
-    font-size:0.5em;
+    font-size:2.5vw;
     text-align: center;
     padding:2vh 0;
 }
@@ -234,7 +234,7 @@ hr {
 }
 
 .content {
-    font-size: 0.3em;
+    font-size: 1.5vw;
     padding: 0 0 0 50px;
 }
 
@@ -374,6 +374,7 @@ nav ul li a:hover {
 #projectPanel{
 height: 100px;
 display: flex;
+justify-content: center;
 width:100%;
 height: 100%;
   left: 0;
@@ -433,19 +434,18 @@ animation-fill-mode: both;
 
   #projectWindow {
   position: fixed;
-  /* top: 5vh; */
   left: 5vw;
   bottom:2vh;
   width: 90vw;
   height: 90vh;
   background-color: #2C2C2C;
+    /* box shadow from https://getcssscan.com/css-box-shadow-examples */
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px, rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
   z-index: 1;
   border-radius:20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display:none;
 }
+
 #projectWindow button {
  position: absolute;
   top: 10px;
@@ -458,28 +458,25 @@ animation-fill-mode: both;
 }
 
 #projectWindow .backgroundChild{
-    position: relative;
-    width: 200px;
+    position: fixed;
+    top:0;
+    width:50vh;
     filter: blur(150px);
 }
 
+#projectWindowContent{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    justify-content: center;
+    align-items: flex-start;
+    padding:10vh 10vw 5vh 5vw;
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#projectWindowContent {
+    font-size: 5em;
+}
 
 footer h2{
     --scaleVar:0.1;
@@ -498,14 +495,14 @@ footer{
     justify-content: start;
     flex-direction: column;
     align-items: center;
-    height:110vh;
+    height:100vh;
     gap:10px;
     
 }
 
 .contactIcon
 {
-padding:2vh;
+padding:2vh 0 2vh 0;
 display: flex;
 justify-content: center;
 align-items: flex-end;
@@ -524,7 +521,7 @@ gap:1vw;
 form{
  display: flex;
 flex-direction: column;
-padding: 5vh 0 5vh 0;
+padding: 5vh 0 2vh 0;
 gap:1vh;
 
 }

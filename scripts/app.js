@@ -15,12 +15,12 @@ function init() {
   let projectWindow = document.getElementById("projectWindow")
   let closingBtn = document.getElementById("closingButton")
   let allProjectCard= document.querySelectorAll(".projectCard")
-  console.log(closingBtn)
+  // console.log(closingBtn)
 
   let projectCardContents = {
-    h1: { card1: "Intruder Within", card2: "chemUlate"},
-    p: {card1: "Intruder Within", card2: "chemUlate"},
-    img: {src:"http"}
+    h1: { card1: "Intruder Within", card2: "chemUlate", card3:"Under Construction" , card4:"Under Construction"},
+    p: {card1: "Intruder Within", card2: "chemUlate", card3:"Under Construction" , card4:"Under Construction"},
+    img: {card1:"", card3:"" , card4:""}
   }
 
 
@@ -78,11 +78,11 @@ function init() {
 
           //crediting the idea from:
           //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_animation
-          console.log("here")
+          // console.log("here")
           projectCard.style.animation = "riseFade 2s both";
         }
-        console.dir(entry)
-        console.dir(entry.target)
+        // console.dir(entry)
+        // console.dir(entry.target)
         intersectedFlags.push(entry.target)
       }
     });
@@ -122,13 +122,23 @@ function init() {
 
 
 
-  allProjectCard.forEach(card=>
-    card.addEventListener("click",showCardInfo)
+  allProjectCard.forEach(card=> {
+    // console.log("hey in the loop")
+    console.log(card)
+    card.addEventListener("click",showCardInfo) 
+    }
+    
   )
 
-function showCardInfo()
+function showCardInfo(event)
 {
   openingProjectW();
+console.log(event.target)
+console.log(event.target.id)
+console.log(projectCardContents.h1[`${event.target.id}`])
+  projectWindow.querySelector("h2").innerText =  projectCardContents.h1[`${event.target.id}`]
+  projectWindow.querySelector("p").innerText =  projectCardContents.p[`${event.target.id}`]
+  projectWindow.querySelector("img").src =  projectCardContents.img[`${event.target.id}`]
 }
 
 
