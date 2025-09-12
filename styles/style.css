@@ -526,8 +526,8 @@ gap:1vh;
 
 }
 
-form > :nth-child(even):not(:last-child) {
-  margin-bottom: 10px;
+form > :nth-child(even){
+  margin-bottom: 20px;
 }
 
 input,textarea{
@@ -542,6 +542,7 @@ input,textarea{
 
 textarea{
     height:9vh;
+    resize: none;
 }
 
 input:focus , textarea:focus {
