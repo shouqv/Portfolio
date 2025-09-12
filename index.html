@@ -14,64 +14,71 @@
 <body>
 
 
-    <header >
+    <header>
         <nav>
             <ul>
-  <li><a href="#aboutMe">About Me</a></li>
-  <li><a href="#skills">Skills</a></li>
-  <li><a href="#projects">Projects</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
+                <li><a href="#aboutMe">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
         <div id="flashlight">
-        <img src="./assets/sparkle.png">
-        <h1>SHOUQ ALMUTAIRI</h1>
+            <img src="./assets/sparkle.png">
+            <h1>SHOUQ ALMUTAIRI</h1>
         </div>
 
     </header>
 
     <main>
         <div id="mainDiv">
-            
+
             <section id="aboutMe">
                 <hr>
-               <div class = "title"><img src="./assets/sparkle.png" >
-                <h2 class="inMain">ABOUT ME</h2>
-                 </div> 
+                <div class="title"><img src="./assets/sparkle.png">
+                    <h2 class="inMain">ABOUT ME</h2>
+                </div>
 
                 <p class="content inMain"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non expedita est
                     rem laborum quasi dolor dignissimos laboriosam harum, accusantium libero beatae illum repudiandae
                     unde assumenda enim impedit, odit error eligendi.
                 </p>
             </section>
-            <span> <img src="./assets/asterisk.png" alt=""><img src="./assets/asterisk.png" alt=""><img src="./assets/asterisk.png" alt=""></span>
+            <span id="spinningStars"> <img src="./assets/asterisk.png" alt=""><img src="./assets/asterisk.png"
+                    alt=""><img src="./assets/asterisk.png" alt=""></span>
             <section id="skills">
-                <div class = "title"><img src="./assets/sparkle.png" >
-                <h2 class="inMain">skills</h2></div>
+                <div class="title"><img src="./assets/sparkle.png">
+                    <h2 class="inMain">skills</h2>
+                </div>
 
                 <div class="movingDiv">
-                <div class="centeringDiv">
-                <ul class="content inMain" id="skillList">      
-                    <li>C++</li>
-                    <li>C#</li>
-                    <li>JAVA</li>
-                    <li>Game Development</li>
-                    <li>HTML</li>
-                    <li>SQL & database design</li>
-                    <li>CSS</li>
-                    <li>JAVASCRIPT</li>
-                    <li>PHP</li> 
-                    <li>Digital Forensics</li> 
+                    <div class="centeringDiv">
+                        <ul class="content inMain" id="skillList">
+                            <li>C++</li>
+                            <li>C#</li>
+                            <li>JAVA</li>
+                            <li>Game Development</li>
+                            <li>HTML</li>
+                            <li>SQL & database design</li>
+                            <li>CSS</li>
+                            <li>JAVASCRIPT</li>
+                            <li>PHP</li>
+                            <li>Digital Forensics</li>
 
-                </ul> </div></div>
+                        </ul>
+                    </div>
+                </div>
             </section>
-            <span> <img src="./assets/asterisk.png" alt=""><img src="./assets/asterisk.png" alt=""><img src="./assets/asterisk.png" alt=""></span>
+            <span id="spinningStars"> <img src="./assets/asterisk.png" alt=""><img src="./assets/asterisk.png"
+                    alt=""><img src="./assets/asterisk.png" alt=""></span>
             <section id="projects">
-                <div class = "title"><img src="./assets/sparkle.png" ><h2 class="inMain">projects</h2></div>
+                <div class="title"><img src="./assets/sparkle.png">
+                    <h2 class="inMain">projects</h2>
+                </div>
 
                 <div id="projectPanel">
-                <div id="projectCard" class="content inMain"><img src="./assets/card_frame .png"> </div>
-                <div id="backgroundChild"> </div>
+                    <div id="projectCard" class="content inMain"><img src="./assets/card_frame .png"> </div>
+                    <div class="backgroundChild"> </div>
                 </div>
             </section>
         </div>
@@ -80,6 +87,26 @@
 
     <footer id="contact">
         <h2>CONTACT</h2>
+        <div id="formContainer">
+            <form>
+                <label for="name">Your name!</label>
+                <input type="text" id="visitorName" placeholder="">
+                <label for="email">Your email</label>
+                <input type="email" id="visitorName" placeholder="">
+                <label for="message">Your message</label>
+                <textarea id="message" placeholder="i'd love to hear from you.."></textarea>
+
+
+
+            </form>
+            
+        </div>
+        <button class="pushable">
+                <span class="front">
+                    submit
+                </span>
+            </button>
+        <span class="contactIcon"> <a><img src="./assets/linkedin.png"></a> <a> <img src="./assets/email-.png" alt=""></a></span>
     </footer>
 
 
