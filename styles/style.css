@@ -215,13 +215,13 @@ main {
     display:flex;
     flex-direction: column;
 
-    padding: 30vh 15vw 50vh 15vw;
+    padding: 30vh 15vw 5vh 15vw;
     justify-content: center;
     gap: 100px;
 }
 
 section {
-    padding: 5vh 0 20vh 0;
+    padding: 10vh 0 20vh 0;
     font-size: 5vw;
    
 }
@@ -290,7 +290,7 @@ nav ul li a {
   color: white;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 1.3em;
+  font-size: 1.3vw;
 }
 
 nav ul li a:hover {
@@ -351,19 +351,19 @@ span img {
 
 @keyframes riseFade {
   0% {
-    bottom: -60px;
+    bottom: -30px;
     opacity: 0;
-    transform: translateX(0) scale(0.8);
+    transform:scale(0.8);
   }
   50% {
-    bottom: 60px;
+    bottom: 30px;
     opacity: 1;
-    transform: translateX(0) scale(1.05);
+    transform: scale(1.05);
   }
   100% {
     bottom: 0px;
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: scale(1);
   }
 }
 
@@ -372,8 +372,6 @@ span img {
 }
 
 #projectPanel{
-/* background-color: #121212;
-background-color: #BB86FC0f; */
 height: 100px;
 display: flex;
 width:100%;
@@ -386,16 +384,32 @@ height: 100%;
 #projectCard img {
     width:35vh;
     filter: blur(0);
+
 }
+
+#projectCard img:hover{
+animation: cardPicking 1s;
+animation-fill-mode: both;
+}
+
+#projectCard img:not(:hover){
+    animation: cardUnPicking 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes cardUnPicking {
+    0% {transform: translateY(-10px) scale(1.1)}
+    100%{transform: translateY(0) scale(1)}
+}
+@keyframes cardPicking {
+    0% {transform: translateY(0) scale(1)}
+    100%{transform: translateY(-10px) scale(1.1)}
+}
+
 
 #projects .title {
-    margin-bottom: 60px;
-}
-
-footer h2{
-    font-size: 50vh;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    padding-bottom: 60px;
+    
 }
 
 /* Crediting https://stackoverflow.com/questions/28975673/how-to-blurcss-div-without-blur-child-element-and-without-absolute */
@@ -404,10 +418,34 @@ footer h2{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: plum;
-  filter: blur(150px);
+  background-image: linear-gradient( rgb(26,0,73), plum,rgb(26,0,73));
+  filter: blur(100px);
   z-index: -1;
   height:50%;
 }
 
+
+footer h2{
+    --scaleVar:0.1;
+    /* display: inline-block; */
+    overflow: hidden;
+     font-size: 20vw;
+     display: inline-block;
+  transform: scale(0.9, var(--scaleVar));
+  text-align: center;
+  transition: transform 0.1s linear;
+  
+
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    height:90vh;
+}
+
+
+#skills .title {
+    padding-bottom: 10vh;
+}
 

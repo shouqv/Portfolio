@@ -2,7 +2,7 @@ function init() {
   let mouseX = 0;
   let mouseY = 0;
   let radiusCounter = 10;
-  let navPosition = -10;
+  
 
   let intersectedFlags = [];
   let divMoved = false;
@@ -10,6 +10,9 @@ function init() {
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
   let movingDiv = document.querySelector(".movingDiv")
+  let contactText = document.querySelector("footer h2")
+  let projectCard = document.querySelector("#projectPanel")
+
   // let movingText = document.querySelector(".movingText")
   console.log(movingDiv)
 
@@ -23,7 +26,7 @@ function init() {
   }
 
 
-  // crediting https://codingartistweb.com/2025/07/flashlight-effect-with-html-css-and-javascript/
+  // for isTouchDevice method, crediting: https://codingartistweb.com/2025/07/flashlight-effect-with-html-css-and-javascript/
   const isTouchDevice = () => {
     try {
       document.createEvent("TouchEvent");
@@ -34,15 +37,16 @@ function init() {
   };
 
   function getMousePosition(e) {
-    mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX;
-    mouseY = !isTouchDevice() ? e.pageY : e.touches[0].pageY;
+    mouseX = !isTouchDevice() ? e.pageX : e.touches[0].pageX
+    mouseY = !isTouchDevice() ? e.pageY : e.touches[0].pageY
 
-    flashlight.style.setProperty("--Xpos", mouseX + "px");
-    flashlight.style.setProperty("--Ypos", mouseY + "px");
+    flashlight.style.setProperty("--Xpos", mouseX + "px")
+    flashlight.style.setProperty("--Ypos", mouseY + "px")
     // end of flashlight effect
   }
 
 
+//syntax from https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#threshold
   let observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting && !intersectedFlags.find((element) => element === entry.target)) {
@@ -56,54 +60,47 @@ function init() {
           }, i * 10);
         }
 
-        if (entry.target.innerText === "skills" && !divMoved) {
+        if (entry.target.innerText === "skills" ) {
 
           //crediting the idea from:
           //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_animation
 
-          movingDiv.style.animation = "riseFade 4s both";
-          
-
+          movingDiv.style.animation = "riseFade 2s both";
         }
+        if (entry.target.innerText === "projects") {
 
-
-       
-
-        
+          //crediting the idea from:
+          //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_animation
+          console.log("here")
+          projectCard.style.animation = "riseFade 2s both";
+        }
+        console.dir(entry)
         console.dir(entry.target)
         intersectedFlags.push(entry.target)
-
       }
     });
   });
 
   mainText.forEach(element =>
-    observer.observe(element))
-
-
-
-  //   let observer2 = new IntersectionObserver(function (entries) {
-  //     console.log("imhere")
-  //   entries.forEach(function (entry) {
-  //     if (entry.isIntersecting && !divMoved ) {
-  //       let leftPosition = -100
-  //       for (let i = 0; i <=150; i++) {
-  //         setTimeout(() => {
-  //           leftPosition += 1;
-  //           entry.target.style.left = `${leftPosition}%`;
-  //         }, i * 10);
-  //       }
-  //       console.log("imhere")
-  //       divMoved = true;
-  //     }
-  //   });
-  // });
-
-  // observer2.observe(movingDiv)
+  observer.observe(element))
 
 
 
 
+//for the text
+let observer3 = new IntersectionObserver(function (entries){
+  entries.forEach((entry)=>
+  {
+    let scale=entry.intersectionRatio +0.1; // 0.1 to prevent the glitching from the start
+    if (entry.isIntersecting) {
+      entry.target.style.setProperty("--scaleVar",scale )
+    }
+  })
+}, {
+        threshold: Array.from({ length: 100 }, (_, i) => i / 100) //syntax from https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
+      })
+
+observer3.observe(contactText)
 
 
 
