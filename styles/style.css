@@ -134,6 +134,13 @@ table {
 }
 
 
+
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
 body {
     color: #E0E0E0;
     /* background-color: #000000; */
@@ -142,16 +149,16 @@ body {
 }
 
 
+
 header {
     height: 100vh;
-    /* full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 2rem;
-    cursor: none;
+    /* padding: 0 2rem; */
+    /* cursor: none; */
 
 }
 
@@ -177,7 +184,8 @@ h1 {
     
     content: "";
     display: block;
-    width: 100vw;
+    left:0px;
+    right:0px;
     height: 100vh;
     position: absolute;
     pointer-events: none;
@@ -197,9 +205,18 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30vh 15vw 2vw 15vw;
-    color: rgba(224,224,224,0) ;
+    /* padding: 30vh 15vw 2vw 15vw; */
+    /* color: rgba(224,224,224,0) ; */
     
+}
+
+#mainDiv{
+    display:flex;
+    flex-direction: column;
+
+    padding: 30vh 15vw 15vw 15vw;
+    justify-content: center;
+    gap: 100px;
 }
 
 section {
@@ -224,11 +241,7 @@ header img {
     width: 100px;
 }
 
-#mainDiv{
-    display:flex;
-    flex-direction: column;
-    gap: 100px;
-}
+
 
 .title {
     display: flex;
@@ -290,9 +303,11 @@ span {
     gap:0px;
     animation: moving 2s infinite ;
     animation-fill-mode:both;
+    animation-timing-function: ease-in-out;
     
 }
 span img {
+    opacity: 0.6;
     animation: rotating 2s infinite;
 }
 
@@ -314,7 +329,6 @@ span img {
 }
 
 .centeringDiv ul {
-   
     width: 50vw;
     height: 40vh;
     background-color: rgb(0, 0, 0);
@@ -354,6 +368,17 @@ span img {
 
 #skillList {
     padding:0px 15px;
+}
+
+#projectPanel{
+    background-color: blue;
+
+   height: 100px;
+    position: absolute;
+    
+  left: 0;
+  right: 0;
+  
 }
 
 
