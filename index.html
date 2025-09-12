@@ -77,36 +77,44 @@
                 </div>
 
                 <div id="projectPanel">
-                    <div id="projectCard" class="content inMain"><img src="./assets/card_frame .png"> </div>
+                    <div id="card1" class="content inMain projectCard"><img src="./assets/card_frame .png"> </div>
                     <div class="backgroundChild"> </div>
                 </div>
             </section>
         </div>
 
     </main>
+    <div id="projectWindow" style="display: none;"><button id="closingButton">X</button>
+        <div class="backgroundChild"> 
+            <h1></h1>
+            <p></p>
+            <img>
+        </div>
+    </div>
 
     <footer id="contact">
         <h2>CONTACT</h2>
         <div id="formContainer">
             <form>
-                <label for="name">Your name!</label>
+                <label for="visitorName">Your name!</label>
                 <input type="text" id="visitorName" placeholder="">
-                <label for="email">Your email</label>
-                <input type="email" id="visitorName" placeholder="">
+                <label for="visitorEmail">Your email</label>
+                <input type="email" id="visitorEmail" placeholder="">
                 <label for="message">Your message</label>
                 <textarea id="message" placeholder="i'd love to hear from you.."></textarea>
 
 
 
             </form>
-            
+
         </div>
         <button class="pushable">
-                <span class="front">
-                    submit
-                </span>
-            </button>
-        <span class="contactIcon"> <a><img src="./assets/linkedin.png"></a> <a> <img src="./assets/email-.png" alt=""></a></span>
+            <span class="front">
+                submit
+            </span>
+        </button>
+        <span class="contactIcon"> <a><img src="./assets/linkedin.png"></a> <a> <img src="./assets/email-.png"
+                    alt=""></a></span>
     </footer>
 
 

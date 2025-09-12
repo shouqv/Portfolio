@@ -381,18 +381,18 @@ height: 100%;
   position: relative;
 }
 
-#projectCard img {
+.projectCard img {
     width:35vh;
     filter: blur(0);
 
 }
 
-#projectCard img:hover{
+.projectCard img:hover{
 animation: cardPicking 1s;
 animation-fill-mode: both;
 }
 
-#projectCard img:not(:hover){
+.projectCard img:not(:hover){
     animation: cardUnPicking 1s;
     animation-fill-mode: both;
 }
@@ -426,6 +426,60 @@ animation-fill-mode: both;
 #skills .title {
     padding-bottom: 10vh;
 }
+
+
+
+
+
+  #projectWindow {
+  position: fixed;
+  /* top: 5vh; */
+  left: 5vw;
+  bottom:2vh;
+  width: 90vw;
+  height: 90vh;
+  background-color: #2C2C2C;
+  z-index: 1;
+  border-radius:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#projectWindow button {
+ position: absolute;
+  top: 10px;
+  right: 10px;
+  color:#6db1ff;
+  background-color: rgb(58, 58, 58);
+  border-radius: 15px;
+  height:3vh
+
+}
+
+#projectWindow .backgroundChild{
+    position: relative;
+    width: 200px;
+    filter: blur(150px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer h2{
     --scaleVar:0.1;

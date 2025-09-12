@@ -2,7 +2,7 @@ function init() {
   let mouseX = 0;
   let mouseY = 0;
   let radiusCounter = 10;
-  
+
 
   let intersectedFlags = [];
   let divMoved = false;
@@ -12,9 +12,16 @@ function init() {
   let movingDiv = document.querySelector(".movingDiv")
   let contactText = document.querySelector("footer h2")
   let projectCard = document.querySelector("#projectPanel")
+  let projectWindow = document.getElementById("projectWindow")
+  let closingBtn = document.getElementById("closingButton")
+  let allProjectCard= document.querySelectorAll(".projectCard")
+  console.log(closingBtn)
 
-  // let movingText = document.querySelector(".movingText")
-  console.log(movingDiv)
+  let projectCardContents = {
+    h1: { card1: "Intruder Within", card2: "chemUlate"},
+    p: {card1: "Intruder Within", card2: "chemUlate"},
+    img: {src:"http"}
+  }
 
 
 
@@ -46,7 +53,7 @@ function init() {
   }
 
 
-//syntax from https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#threshold
+  //syntax from https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#threshold
   let observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting && !intersectedFlags.find((element) => element === entry.target)) {
@@ -60,7 +67,7 @@ function init() {
           }, i * 10);
         }
 
-        if (entry.target.innerText === "skills" ) {
+        if (entry.target.innerText === "skills") {
 
           //crediting the idea from:
           //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_animation
@@ -82,27 +89,47 @@ function init() {
   });
 
   mainText.forEach(element =>
-  observer.observe(element))
+    observer.observe(element))
 
 
 
 
-//for the text
-let observer3 = new IntersectionObserver(function (entries){
-  entries.forEach((entry)=>
-  {
-    let scale=entry.intersectionRatio +0.1; // 0.1 to prevent the glitching from the start
-    if (entry.isIntersecting) {
-      entry.target.style.setProperty("--scaleVar",scale )
-    }
+  //for the text
+  let observer3 = new IntersectionObserver(function (entries) {
+    entries.forEach((entry) => {
+      let scale = entry.intersectionRatio + 0.1; // 0.1 to prevent the glitching from the start
+      if (entry.isIntersecting) {
+        entry.target.style.setProperty("--scaleVar", scale)
+      }
+    })
+  }, {
+    threshold: Array.from({ length: 100 }, (_, i) => i / 100) //syntax from https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
   })
-}, {
-        threshold: Array.from({ length: 100 }, (_, i) => i / 100) //syntax from https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
-      })
 
-observer3.observe(contactText)
+  observer3.observe(contactText)
 
 
+  function closingProjectW() {
+    projectWindow.style.display = "none";
+
+  }
+
+  function openingProjectW() {
+    projectWindow.style.display = "block";
+  }
+
+  closingBtn.addEventListener("click", closingProjectW)
+
+
+
+  allProjectCard.forEach(card=>
+    card.addEventListener("click",showCardInfo)
+  )
+
+function showCardInfo()
+{
+  openingProjectW();
+}
 
 
 
