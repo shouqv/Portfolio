@@ -45,7 +45,7 @@ function init() {
 
   //this is the content of the project to populate the project window dynamically
   let projectCardContents = {
-    h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction", card4: "Under Construction" },
+    h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction"},
     p: {
       card1: "Intruder Intruder Within, is an interactive educational game designed to teach cybersecurity concepts through engaging gameplay and real-world scenarios. Players take on the role of employee entrusted with safeguarding confidential company data from intruders. After receiving an alert, they must secure the data and identify the intruder.\n\nThe game introduces key cybersecurity principles based on the CIA triad (Confidentiality, Integrity and Availability) through various levels and puzzlesthat keep players actively learning\n\nTechnolgies:"
       , card2: "\nChemUlate is a web-based chemical lab simulator that lets users safely perform virtual experiments. The project followed the software engineering life cycle, including planning and proposals, managing risks, defining user and system requirements, and creating system models like use case diagrams, sequence diagrams, and class diagrams.\n\n", card3: "Under Construction", card4: "Under Construction"
