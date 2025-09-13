@@ -5,7 +5,7 @@ function init() {
 
 
   let intersectedFlags = [];
-  let created=false;
+  let created = false;
 
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
@@ -15,17 +15,19 @@ function init() {
   let projectWindow = document.getElementById("projectWindow")
   let closingBtn = document.getElementById("closingButton")
   let allProjectCard = document.querySelectorAll(".projectCard")
+  const projectPicsRight = document.querySelector("#projectPicsRight");
+  let projectWindowLeftContainer = document.getElementById("projectWindowContent")
 
 
   // console.log(closingBtn)
 
   let projectCardContents = {
-    h1: { card1: "Intruder Within", card2: "chemUlate", card3: "Under Construction", card4: "Under Construction" },
+    h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction", card4: "Under Construction" },
     p: {
-      card1: "Intruder Intruder Within, is an interactive educational game designed to teach cybersecurity concepts through engaging gameplay and real-world scenarios. Players take on the role of employee entrusted with safeguarding confidential company data from intruders. After receiving an alert, they must secure the data and identify the intruder.\n\nThe game introduces key cybersecurity principles based on the CIA triad (Confidentiality, Integrity and Availability) through various levels and puzzlesthat keep players actively learning"
-      , card2: "chemUlate", card3: "Under Construction", card4: "Under Construction"
+      card1: "Intruder Intruder Within, is an interactive educational game designed to teach cybersecurity concepts through engaging gameplay and real-world scenarios. Players take on the role of employee entrusted with safeguarding confidential company data from intruders. After receiving an alert, they must secure the data and identify the intruder.\n\nThe game introduces key cybersecurity principles based on the CIA triad (Confidentiality, Integrity and Availability) through various levels and puzzlesthat keep players actively learning\n\nTechnolgies:"
+      , card2: "ChemUlate is a web-based chemical lab simulator that lets users safely perform virtual experiments. The project followed the software engineering life cycle, including planning and proposals, managing risks, defining user and system requirements, and creating system models like use case diagrams, sequence diagrams, and class diagrams.", card3: "Under Construction", card4: "Under Construction"
     },
-    img: { card1: "", card3: "", card4: "" }
+    img: { card1: '<img src="./assets/intruderWithinTech.png">', card2: '<img style="max-width: 370px; max-height: 294px;" src="./assets/LogInPage.png"> <img style="max-width: 370px; max-height: 294px;"src="./assets/homePage.png"> <img style="max-width: 370px; max-height: 294px;" src="./assets/labFolder.png"> <img style="max-width: 370px; max-height: 294px;" src="./assets/periodicTable.png">', card3: ""}
   }
 
 
@@ -116,11 +118,11 @@ function init() {
 
   function closingProjectW() {
     projectWindow.style.display = "none";
-    created=false
-     while (projectPics.hasChildNodes()) {
-  projectPics.removeChild(projectPics.firstChild);
-  
-}
+    created = false
+    while (projectPicsRight.hasChildNodes()) {
+      projectPicsRight.removeChild(projectPicsRight.firstChild);
+
+    }
 
   }
 
@@ -147,24 +149,25 @@ function init() {
     console.log(projectCardContents.h1[`${event.target.id}`])
     projectWindow.querySelector("h2").innerText = projectCardContents.h1[`${event.target.id}`]
     projectWindow.querySelector("p").innerText = projectCardContents.p[`${event.target.id}`]
-    // projectWindow.querySelector("img").src = projectCardContents.img[`${event.target.id}`]
-    const projectPics = document.querySelector("#projectPics");
-    let levelVid=[]
+    projectWindow.querySelector("#projectPicsLeft").innerHTML = projectCardContents.img[`${event.target.id}`]
+    console.log(projectWindow.querySelector("#projectPicsLeft"))
+
+    let levelVid = []
     if (event.target.id === "card1" && !created) {
-  for (let i = 1; i <= 3; i++) {
-    levelVid[i-1] = document.createElement("video");
-    levelVid[i-1].src = `./assets/level${i}.mp4`;
-    levelVid[i-1].autoplay = true;
-    levelVid[i-1].controls = true;
-    levelVid[i-1].muted = true;
-    levelVid[i-1].style.width = "30vw";
-levelVid[i-1].style.height = "25vh";
+      for (let i = 1; i <= 3; i++) {
+        levelVid[i - 1] = document.createElement("video");
+        levelVid[i - 1].src = `./assets/level${i}.mp4`;
+        levelVid[i - 1].autoplay = true;
+        levelVid[i - 1].controls = true;
+        levelVid[i - 1].muted = true;
+        levelVid[i - 1].style.width = "30vw";
+        levelVid[i - 1].style.height = "25vh";
 
-    projectPics.append(levelVid[i-1]);
-  }
-  created = true;
+        projectPicsRight.append(levelVid[i - 1]);
+      }
+      created = true;
 
-} 
+    }
   }
 
 

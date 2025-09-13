@@ -437,9 +437,9 @@ animation-fill-mode: both;
 
   #projectWindow {
   position: fixed;
-  left: 5vw;
+  left: 3vw;
   bottom:2vh;
-  width: 90vw;
+  width: 93vw;
   height: 90vh;
   background-color: #2C2C2C;
     /* box shadow from https://getcssscan.com/css-box-shadow-examples */
@@ -470,21 +470,27 @@ animation-fill-mode: both;
 #projectWindowContent{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 4vh;
     justify-content: center;
     align-items: flex-start;
-    padding:5vh 10vw 5vh 5vw;
-   
-    font-size:2em;
-
+    padding:2vh 10vw 5vh 6vw;
+    font-size: 1.3vw;
+    line-height: 1.6;
+    text-align: justify;
+    max-height: inherit;
 }
 
-#projectPics{
+#projectPicsRight{
     display: flex;
     flex-direction: column;
     padding:4vh 0 0 0;
     gap:2vh
 }
+
+#projectPicsLeft{
+    display:flex;
+}
+
 
 #divToAlignHorz{
     display:flex;
