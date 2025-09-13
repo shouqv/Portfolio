@@ -1,12 +1,11 @@
 function init() {
-  let mouseX = 0;
-  let mouseY = 0;
-  let radiusCounter = 10;
+
   const levelVid = []
-
-
-  let intersectedFlags = [];
-  let appended = false;
+  let mouseX = 0
+  let mouseY = 0
+  let radiusCounter = 10
+  let intersectedFlags = []
+  let appended = false
 
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
@@ -24,7 +23,6 @@ function init() {
 
 
   closingBtn.addEventListener("click", closingProjectW)
-
   allProjectCard.forEach(card => {
     card.addEventListener("click", showCardInfo)
   }
@@ -45,7 +43,7 @@ function init() {
 
   //this is the content of the project to populate the project window dynamically
   let projectCardContents = {
-    h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction"},
+    h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction" },
     p: {
       card1: "Intruder Intruder Within, is an interactive educational game designed to teach cybersecurity concepts through engaging gameplay and real-world scenarios. Players take on the role of employee entrusted with safeguarding confidential company data from intruders. After receiving an alert, they must secure the data and identify the intruder.\n\nThe game introduces key cybersecurity principles based on the CIA triad (Confidentiality, Integrity and Availability) through various levels and puzzlesthat keep players actively learning\n\nTechnolgies:"
       , card2: "\nChemUlate is a web-based chemical lab simulator that lets users safely perform virtual experiments. The project followed the software engineering life cycle, including planning and proposals, managing risks, defining user and system requirements, and creating system models like use case diagrams, sequence diagrams, and class diagrams.\n\n", card3: "Under Construction", card4: "Under Construction"
@@ -158,7 +156,7 @@ function init() {
     projectWindowH2Tag.innerText = projectCardContents.h1[`${event.target.id}`]
     projectWindowPTag.innerText = projectCardContents.p[`${event.target.id}`]
     projectPicsLeftDiv.innerHTML = projectCardContents.img[`${event.target.id}`]
-    console.log(projectWindow.querySelector("#projectPicsLeft"))
+   
 
     if (event.target.id === "card1" && !appended) {
       levelVid.forEach(level =>
