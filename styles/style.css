@@ -142,6 +142,12 @@ table {
 }
 
 
+
+
+
+
+
+
 body {
     color: #E0E0E0;
     font-family: "Playfair Display";
@@ -277,13 +283,14 @@ nav ul {
     justify-content: center;
     border-radius: 20px;
     width: 50vw;
-    gap: 30px;
+    gap: 1vw;
+    flex-wrap: wrap;
 }
 
 nav ul li a {
     display: block;
     color: white;
-    padding: 14px 16px;
+    padding: 2vh 3vw;
     text-decoration: none;
     font-size: 1.3vw;
 }
@@ -623,3 +630,40 @@ textarea:focus {
     transform: translateY(-2px);
 }
 
+/* end of 3d design */
+
+@media screen and (max-width: 780px) {
+  .content , #projectWindow p{
+    font-size: 3vw;
+  }
+
+  h2 {
+    font-size: 4vw;
+  }
+
+  .content img{
+    width: 25vw;
+}
+
+div.projectCard
+{
+    padding: 1vw;;
+}
+input, textarea{
+   width:40vw
+}
+.front {
+    font-size:4vw;
+}
+nav ul li a{
+    font-size: 3vw;
+    padding:2vw;
+}
+nav ul {
+    width:80vw;
+}
+div.centeringDiv ul{
+    width:70vw;
+}
+
+}
