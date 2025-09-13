@@ -301,7 +301,7 @@ nav ul li a:hover {
   border-radius: 10px;
 }
 
-#spinningStars { 
+.spinningStars { 
     display: flex;
     justify-content: center;
     gap:0px;
@@ -310,7 +310,7 @@ nav ul li a:hover {
     animation-timing-function: ease-in-out;
     
 }
-#spinningStars img {
+.spinningStars img {
     opacity: 0.6;
     animation: rotating 2s infinite;
 }
@@ -470,7 +470,7 @@ animation-fill-mode: both;
 #projectWindowContent{
     display: flex;
     flex-direction: column;
-    gap: 4vh;
+    gap: 0vh;
     justify-content: center;
     align-items: flex-start;
     padding:2vh 10vw 5vh 6vw;
@@ -484,18 +484,23 @@ animation-fill-mode: both;
     display: flex;
     flex-direction: column;
     padding:4vh 0 0 0;
-    gap:2vh
+    gap:2vw;
+    
 }
 
 #projectPicsLeft{
     display:flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-self: center;
+    gap:1vw;
 }
 
 
 #divToAlignHorz{
     display:flex;
-    /* justify-content: space-around; */
     justify-content: center;
+
 }
 
 
