@@ -236,6 +236,9 @@ hr {
 .content {
     font-size: 1.5vw;
     padding: 0 0 0 50px;
+    text-align: justify;
+    inline-size: none;
+    line-height: 1.6;
 }
 
 header img {
@@ -467,16 +470,31 @@ animation-fill-mode: both;
 #projectWindowContent{
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 50px;
     justify-content: center;
     align-items: flex-start;
-    padding:10vh 10vw 5vh 5vw;
+    padding:5vh 10vw 5vh 5vw;
+   
+    font-size:2em;
 
 }
 
-#projectWindowContent {
-    font-size: 5em;
+#projectPics{
+    display: flex;
+    flex-direction: column;
+    padding:4vh 0 0 0;
+    gap:2vh
 }
+
+#divToAlignHorz{
+    display:flex;
+    /* justify-content: space-around; */
+    justify-content: center;
+}
+
+
+
+
 
 footer h2{
     --scaleVar:0.1;

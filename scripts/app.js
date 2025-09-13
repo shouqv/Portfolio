@@ -5,7 +5,7 @@ function init() {
 
 
   let intersectedFlags = [];
-  let divMoved = false;
+  let created=false;
 
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
@@ -14,13 +14,18 @@ function init() {
   let projectCard = document.querySelector("#projectPanel")
   let projectWindow = document.getElementById("projectWindow")
   let closingBtn = document.getElementById("closingButton")
-  let allProjectCard= document.querySelectorAll(".projectCard")
+  let allProjectCard = document.querySelectorAll(".projectCard")
+
+
   // console.log(closingBtn)
 
   let projectCardContents = {
-    h1: { card1: "Intruder Within", card2: "chemUlate", card3:"Under Construction" , card4:"Under Construction"},
-    p: {card1: "Intruder Within", card2: "chemUlate", card3:"Under Construction" , card4:"Under Construction"},
-    img: {card1:"", card3:"" , card4:""}
+    h1: { card1: "Intruder Within", card2: "chemUlate", card3: "Under Construction", card4: "Under Construction" },
+    p: {
+      card1: "Intruder Intruder Within, is an interactive educational game designed to teach cybersecurity concepts through engaging gameplay and real-world scenarios. Players take on the role of employee entrusted with safeguarding confidential company data from intruders. After receiving an alert, they must secure the data and identify the intruder.\n\nThe game introduces key cybersecurity principles based on the CIA triad (Confidentiality, Integrity and Availability) through various levels and puzzlesthat keep players actively learning"
+      , card2: "chemUlate", card3: "Under Construction", card4: "Under Construction"
+    },
+    img: { card1: "", card3: "", card4: "" }
   }
 
 
@@ -111,6 +116,11 @@ function init() {
 
   function closingProjectW() {
     projectWindow.style.display = "none";
+    created=false
+     while (projectPics.hasChildNodes()) {
+  projectPics.removeChild(projectPics.firstChild);
+  
+}
 
   }
 
@@ -122,24 +132,40 @@ function init() {
 
 
 
-  allProjectCard.forEach(card=> {
+  allProjectCard.forEach(card => {
     // console.log("hey in the loop")
     console.log(card)
-    card.addEventListener("click",showCardInfo) 
-    }
-    
+    card.addEventListener("click", showCardInfo)
+  }
+
   )
 
-function showCardInfo(event)
-{
-  openingProjectW();
-console.log(event.target)
-console.log(event.target.id)
-console.log(projectCardContents.h1[`${event.target.id}`])
-  projectWindow.querySelector("h2").innerText =  projectCardContents.h1[`${event.target.id}`]
-  projectWindow.querySelector("p").innerText =  projectCardContents.p[`${event.target.id}`]
-  projectWindow.querySelector("img").src =  projectCardContents.img[`${event.target.id}`]
-}
+  function showCardInfo(event) {
+    openingProjectW();
+    console.log(event.target)
+    console.log(event.target.id)
+    console.log(projectCardContents.h1[`${event.target.id}`])
+    projectWindow.querySelector("h2").innerText = projectCardContents.h1[`${event.target.id}`]
+    projectWindow.querySelector("p").innerText = projectCardContents.p[`${event.target.id}`]
+    // projectWindow.querySelector("img").src = projectCardContents.img[`${event.target.id}`]
+    const projectPics = document.querySelector("#projectPics");
+    let levelVid=[]
+    if (event.target.id === "card1" && !created) {
+  for (let i = 1; i <= 3; i++) {
+    levelVid[i-1] = document.createElement("video");
+    levelVid[i-1].src = `./assets/level${i}.mp4`;
+    levelVid[i-1].autoplay = true;
+    levelVid[i-1].controls = true;
+    levelVid[i-1].muted = true;
+    levelVid[i-1].style.width = "30vw";
+levelVid[i-1].style.height = "25vh";
+
+    projectPics.append(levelVid[i-1]);
+  }
+  created = true;
+
+} 
+  }
 
 
 
