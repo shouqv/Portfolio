@@ -667,11 +667,13 @@ textarea:focus {
         font-size: 2.5vw;
     }
     .skills-section{
-        width:70vw;
-        padding:0;
+    width: 90vw;        
+    max-width: none;    
+    padding-left: 10vw;
     }
     .skills{
-        width:70vw;
+        width:100%;
+        
     }
 
     .content img {
