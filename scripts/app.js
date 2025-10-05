@@ -6,10 +6,8 @@ function init() {
   let radiusCounter = 10
   let intersectedFlags = []
   let appended = false
-
   let flashlight = document.getElementById("flashlight");
   let mainText = document.querySelectorAll(".inMain")
-  let movingDiv = document.querySelector(".movingDiv")
   let contactText = document.querySelector("footer h2")
   let projectCard = document.querySelector("#projectPanel")
   let projectWindow = document.getElementById("projectWindow")
@@ -45,10 +43,10 @@ function init() {
   let projectCardContents = {
     h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction" },
     p: {
-      card1: "Intruder Intruder Within, is an interactive educational game designed to teach cybersecurity concepts through engaging gameplay and real-world scenarios. Players take on the role of employee entrusted with safeguarding confidential company data from intruders. After receiving an alert, they must secure the data and identify the intruder.\n\nThe game introduces key cybersecurity principles based on the CIA triad (Confidentiality, Integrity and Availability) through various levels and puzzlesthat keep players actively learning\n\nTechnolgies:"
+      card1: "Intruder Within is an educational cybersecurity game developed in C# that teaches players key concepts of the CIA Triad: Confidentiality, Integrity, and Availability. It combines engaging gameplay with real-world cybersecurity scenarios to make learning both practical and interactive.\n\nPlayers take the role of an employee responsible for protecting company data. Each level focuses on one CIA principle and presents related challenges. By successfully completing levels, players earn clues that help them identify the intruder behind the attack and ultimately secure the company’s information.\n\nTechnolgies:"
       , card2: "\nChemUlate is a web-based chemical lab simulator that lets users safely perform virtual experiments. The project followed the software engineering life cycle, including planning and proposals, managing risks, defining user and system requirements, and creating system models like use case diagrams, sequence diagrams, and class diagrams.\n\n", card3: "Under Construction", card4: "Under Construction"
     },
-    img: { card1: '<img style="width:20vw; height:6vw" src="./assets/intruderWithinTech.png">', card2: '<img style="width:15vw; height:10vw" src="./assets/LogInPage.png"> <img style="width:15vw; height:10vw" src="./assets/homePage.png"> <img style="width:15vw; height:10vw" src="./assets/labFolder.png"> <img style="width:15vw; height:10vw" src="./assets/periodicTable.png">', card3: "" }
+    img: { card1: '<img class="card1content" style="width:20vw; height:6vw" src="./assets/intruderWithinTech.png">', card2: '<img class="card2content" style="width:15vw; height:10vw" src="./assets/LogInPage.png"> <img class="card2content" style="width:15vw; height:10vw" src="./assets/homePage.png"> <img class="card2content" style="width:15vw; height:10vw" src="./assets/labFolder.png"> <img class="card2content" style="width:15vw; height:10vw" src="./assets/periodicTable.png">', card3: "" }
   }
 
 
@@ -57,7 +55,7 @@ function init() {
     setTimeout(() => {
       radiusCounter += 1;
       flashlight.style.setProperty("--radius", radiusCounter + "em");
-    }, i * 10);
+    }, i * 20);
   }
 
 
@@ -90,20 +88,8 @@ function init() {
       if (entry.isIntersecting && !intersectedFlags.find((element) => element === entry.target)) {
 
         //below manipulate the opacity of the text in main
-        let opacity = 0
-        for (let i = 0; i <= 100; i++) {
-          setTimeout(() => {
-            opacity += 0.01;
-            entry.target.style.color = `rgba(224, 224, 224, ${opacity}`;
+        entry.target.classList.add("fade-in");
 
-          }, i * 10);
-        }
-
-        if (entry.target.innerText.toLowerCase() === "skills") {
-          //crediting the idea from:
-          //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_style_animation
-          movingDiv.style.animation = "riseFade 2s both";
-        }
         if (entry.target.innerText.toLowerCase() === "projects") {
           projectCard.style.animation = "riseFade 2s both";
         }
@@ -156,7 +142,7 @@ function init() {
     projectWindowH2Tag.innerText = projectCardContents.h1[`${event.target.id}`]
     projectWindowPTag.innerText = projectCardContents.p[`${event.target.id}`]
     projectPicsLeftDiv.innerHTML = projectCardContents.img[`${event.target.id}`]
-   
+
 
     if (event.target.id === "card1" && !appended) {
       levelVid.forEach(level =>
@@ -167,6 +153,43 @@ function init() {
   }
 
 
+
+
+const section = document.querySelector(".skills-section");
+const skillsContainers = document.querySelectorAll(".skills");
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      section.classList.add("visible");
+      // sectionObserver.unobserve(section); 
+    }
+  });
+});
+
+
+const skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // crediting https://developer.mozilla.org/en-US/docs/Web/CSS/:scope
+      const skillItems = entry.target.querySelectorAll(":scope > .skill");
+
+      skillItems.forEach((skill, index) => {
+        setTimeout(() => {
+          skill.classList.add("show");
+        }, index * 50); 
+      });
+      // skillsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+skillsContainers.forEach((container) => skillsObserver.observe(container));
+sectionObserver.observe(section);
+
+
+
+  
 }
 
 
