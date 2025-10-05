@@ -667,8 +667,11 @@ textarea:focus {
         font-size: 2.5vw;
     }
     .skills-section{
-        width:80vw;
-        padding: 0 0 0 0vw;
+        width:70vw;
+        padding:0;
+    }
+    .skills{
+        width:70vw;
     }
 
     .content img {
@@ -724,7 +727,7 @@ footer {
 }
 .backgroundChild
 {
-filter: blur(50px);
+filter: blur(30px);
 }
 #projectPicsRight{
     display:none;
