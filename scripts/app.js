@@ -33,6 +33,7 @@ function init() {
     levelVid[i - 1] = document.createElement("video");
     levelVid[i - 1].src = `./assets/level${i}.mp4`;
     levelVid[i - 1].autoplay = true;
+    levelVid[i - 1].loop = true;
     levelVid[i - 1].muted = true;
     levelVid[i - 1].style.width = "30vw";
     levelVid[i - 1].style.height = "25vh";
@@ -131,14 +132,22 @@ function init() {
     }
   }
 
-  function openingProjectW() {
+  function openingProjectW(event) {
     projectWindow.style.display = "block";
+    if (event.target.id === "card1" && !appended) {
+      levelVid.forEach(level => {
+        projectPicsRight.append(level);
+        level.currentTime = 0;   
+        level.play();            
+      });
+      appended = true;
+    }
   }
 
 
   //populating the project window dynamically
   function showCardInfo(event) {
-    openingProjectW();
+    openingProjectW(event);
     projectWindowH2Tag.innerText = projectCardContents.h1[`${event.target.id}`]
     projectWindowPTag.innerText = projectCardContents.p[`${event.target.id}`]
     projectPicsLeftDiv.innerHTML = projectCardContents.img[`${event.target.id}`]
@@ -155,41 +164,41 @@ function init() {
 
 
 
-const section = document.querySelector(".skills-section");
-const skillsContainers = document.querySelectorAll(".skills");
+  const section = document.querySelector(".skills-section");
+  const skillsContainers = document.querySelectorAll(".skills");
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      section.classList.add("visible");
-      // sectionObserver.unobserve(section); 
-    }
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        section.classList.add("visible");
+        // sectionObserver.unobserve(section); 
+      }
+    });
   });
-});
 
 
-const skillsObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      // crediting https://developer.mozilla.org/en-US/docs/Web/CSS/:scope
-      const skillItems = entry.target.querySelectorAll(":scope > .skill");
+  const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // crediting https://developer.mozilla.org/en-US/docs/Web/CSS/:scope
+        const skillItems = entry.target.querySelectorAll(":scope > .skill");
 
-      skillItems.forEach((skill, index) => {
-        setTimeout(() => {
-          skill.classList.add("show");
-        }, index * 50); 
-      });
-      // skillsObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
+        skillItems.forEach((skill, index) => {
+          setTimeout(() => {
+            skill.classList.add("show");
+          }, index * 50);
+        });
+        // skillsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
 
-skillsContainers.forEach((container) => skillsObserver.observe(container));
-sectionObserver.observe(section);
+  skillsContainers.forEach((container) => skillsObserver.observe(container));
+  sectionObserver.observe(section);
 
 
 
-  
+
 }
 
 
