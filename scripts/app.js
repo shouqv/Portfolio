@@ -15,8 +15,9 @@ function init() {
   let allProjectCard = document.querySelectorAll(".projectCard")
   const projectPicsRight = document.querySelector("#projectPicsRight");
   const projectWindowH2Tag = projectWindow.querySelector("h2");
-  const projectWindowPTag = projectWindow.querySelector("p");
+  // const projectWindowPTag = projectWindow.querySelector("p");
   const projectPicsLeftDiv = projectWindow.querySelector("#projectPicsLeft");
+  const projectWindowPTag = projectWindow.querySelector("#projectWindowInnerText");
 
 
 
@@ -44,8 +45,8 @@ function init() {
   let projectCardContents = {
     h1: { card1: "Intruder Within", card2: "ChemUlate", card3: "Under Construction" },
     p: {
-      card1: "Intruder Within is an educational cybersecurity game developed in C# that teaches players key concepts of the CIA Triad: Confidentiality, Integrity, and Availability. It combines engaging gameplay with real-world cybersecurity scenarios to make learning both practical and interactive.\n\nPlayers take the role of an employee responsible for protecting company data. Each level focuses on one CIA principle and presents related challenges. By successfully completing levels, players earn clues that help them identify the intruder behind the attack and ultimately secure the company’s information.\n\nTechnolgies:"
-      , card2: "\nChemUlate is a web-based chemical lab simulator that lets users safely perform virtual experiments. The project followed the software engineering life cycle, including planning and proposals, managing risks, defining user and system requirements, and creating system models like use case diagrams, sequence diagrams, and class diagrams.\n\n", card3: "Under Construction", card4: "Under Construction"
+      card1: "<p> Intruder Within is an educational cybersecurity game developed in C# that teaches players key concepts of the CIA Triad: Confidentiality, Integrity, and Availability. It combines engaging gameplay with real-world cybersecurity scenarios to make learning both practical and interactive.\n\nPlayers take the role of an employee responsible for protecting company data. Each level focuses on one CIA principle and presents related challenges. By successfully completing levels, players earn clues that help them identify the intruder behind the attack and ultimately secure the company’s information.\n\n</p> <a href='https://drive.google.com/drive/folders/1kGJ03AWB_KzrPAIVXjbgZnIs4mHOwhzV?usp=sharing'>Click to discover more about Intruder Within (Gameplay and systems)</a> <p>\nTechnologies:</p>"
+      , card2: "<p>\nChemUlate is a web-based chemical lab simulator that lets users safely perform virtual experiments. The project followed the software engineering life cycle, including planning and proposals, managing risks, defining user and system requirements, and creating system models like use case diagrams, sequence diagrams, and class diagrams.\n\n</p>", card3: "Under Construction", card4: "Under Construction"
     },
     img: { card1: '<img class="card1content" style="width:20vw; height:6vw" src="./assets/intruderWithinTech.png">', card2: '<img class="card2content" style="width:15vw; height:10vw" src="./assets/LogInPage.png"> <img class="card2content" style="width:15vw; height:10vw" src="./assets/homePage.png"> <img class="card2content" style="width:15vw; height:10vw" src="./assets/labFolder.png"> <img class="card2content" style="width:15vw; height:10vw" src="./assets/periodicTable.png">', card3: "" }
   }
@@ -149,7 +150,7 @@ function init() {
   function showCardInfo(event) {
     openingProjectW(event);
     projectWindowH2Tag.innerText = projectCardContents.h1[`${event.target.id}`]
-    projectWindowPTag.innerText = projectCardContents.p[`${event.target.id}`]
+    projectWindowPTag.innerHTML = projectCardContents.p[`${event.target.id}`]
     projectPicsLeftDiv.innerHTML = projectCardContents.img[`${event.target.id}`]
 
 

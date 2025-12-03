@@ -515,6 +515,41 @@ nav ul li a:hover {
     max-height: inherit;
 }
 
+#projectWindowInnerText {
+    white-space: pre-line;
+}
+
+
+
+#projectWindowContent #projectWindowInnerText a {
+	text-decoration: none;
+	color: #f1f1f1;
+	color: #E0E0E0;
+	color: #b3ddff;
+	font-weight: 700;
+  position: relative;
+}
+
+#projectWindowContent #projectWindowInnerText a::before {
+  content: '';
+  background-color: hsla(300, 100%, 50%, 0.50);
+  background-color: rgba(221, 160, 221, 0.50);
+  background-color: rgba(102, 35, 179);
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 100%;
+  height: 8px;
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+
+#projectWindowContent #projectWindowInnerText a:hover::before {
+  bottom: 0;
+  height: 100%;
+}
+
+
 #projectPicsRight {
     display: flex;
     flex-direction: column;
@@ -651,7 +686,7 @@ textarea:focus {
 @media screen and (max-width: 1300px) {
 
     .content,
-    #projectWindow p {
+    #projectWindowInnerText {
         font-size: 3vw;
     }
 
